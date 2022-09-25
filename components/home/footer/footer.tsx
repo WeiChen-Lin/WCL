@@ -19,7 +19,7 @@ const Random_li = (dom_key: number) => {
   )
 }
 
-const make_ten = (): JSX.Element[] => {
+const make_Bubbles = (): JSX.Element[] => {
   const ten: JSX.Element[] = []
   for (let i = 0; i < 300; i++) {
     ten.push(Random_li(i))
@@ -35,7 +35,7 @@ export default function Footer() {
        before:contents-[""] before:absolute before:-top-20 before:left-0 before:right-0 before:bottom-0
        before:z-10 before:backdrop-blur-sm'
       >
-        <ul className='flex relative'>{make_ten()}</ul>
+        <ul className='flex relative'>{make_Bubbles()}</ul>
       </div>
     </div>
   )
