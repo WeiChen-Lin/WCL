@@ -1,0 +1,13 @@
+.bubble {
+  /* animation: move 3s infinite 1s linear; */
+  animation: move 3s ease-in-out 1s infinite;
+}
+@keyframes move {
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.08;
+    transform: translate(-50%, -80px) scale(0.1);
+  }
+}
