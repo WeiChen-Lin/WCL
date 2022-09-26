@@ -1,4 +1,4 @@
-import Upperlayer from './upperlayer/upplayer'
+import Upperlayer from './upperlayer'
 import Footer from './footer/footer'
 
 export default function HomePage() {
