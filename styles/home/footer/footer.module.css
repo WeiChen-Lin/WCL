@@ -1,6 +1,26 @@
 .bubble {
-  /* animation: move 3s infinite 1s linear; */
   animation: move 3s ease-in-out 1s infinite;
+}
+.bubble_ul::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  backdrop-filter: blur(3px);
+}
+.bubble_ul::after {
+  position: absolute;
+  content: '© WeiChen Lin 2022';
+  width: 100%;
+  z-index: 10;
+  color: black;
+  text-align: center;
+  bottom: -4px;
+  font-weight: bolder;
+  font-size: 14px;
 }
 @keyframes move {
   90% {
@@ -8,6 +28,6 @@
   }
   100% {
     opacity: 0.08;
-    transform: translate(-50%, -80px) scale(0.1);
+    transform: translate(-50%, -70px) scale(0.1);
   }
 }

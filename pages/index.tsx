@@ -1,10 +1,14 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import HomePage from 'components/home'
+import type { NextPageWithLayout } from './_app'
 
-const Home: NextPage = () => {
+import HomePage from 'components/home'
+import Layout from 'layouts/layout'
+
+const Home: NextPageWithLayout = () => {
   return <HomePage />
+}
+
+Home.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>
 }
 
 export default Home

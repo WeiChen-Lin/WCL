@@ -1,12 +1,13 @@
 .textAnimate {
   position: relative;
-  font-size: 4em;
+  font-size: 2em;
   text-decoration: none;
   line-height: 1em;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
 }
 
 .textAnimate::before {
@@ -15,8 +16,8 @@
   color: rgb(164, 86, 86);
   width: 0%;
   overflow: hidden;
-  transition: 1s;
-  border-right: 8px solid rgb(164, 86, 86);
+  transition: 500ms;
+  border-right: 4px solid rgb(164, 86, 86);
 }
 
 .textAnimate:hover::before {
@@ -25,5 +26,4 @@
   -webkit-text-stroke: 1px rgb(164, 86, 86);
   color: rgb(164, 86, 86);
   filter: drop-shadow(0 0 25px rgb(164, 86, 86));
-  cursor: pointer;
 }

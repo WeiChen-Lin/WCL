@@ -6,7 +6,7 @@ const Random_li = (dom_key: number) => {
   const position: number = Math.random() * 100
   return (
     <li
-      className={`${styles.bubble} bg-black rounded-full absolute`}
+      className={`${styles.bubble} rounded-full absolute bg-orange-50`}
       key={dom_key}
       style={{
         animationDuration: `${seconds + 2}s`,
@@ -20,21 +20,17 @@ const Random_li = (dom_key: number) => {
 }
 
 const make_Bubbles = (): JSX.Element[] => {
-  const ten: JSX.Element[] = []
-  for (let i = 0; i < 300; i++) {
-    ten.push(Random_li(i))
+  const bubbles: JSX.Element[] = []
+  for (let i: number = 0; i < 300; i++) {
+    bubbles.push(Random_li(i))
   }
-  return ten
+  return bubbles
 }
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
   return (
     <div className='fixed w-full bottom-0 contrast-[8]'>
-      <div
-        className='relative h-4 bg-black
-       before:contents-[""] before:absolute before:-top-20 before:left-0 before:right-0 before:bottom-0
-       before:z-10 before:backdrop-blur-sm'
-      >
+      <div className={`relative h-3 bg-orange-50 ${styles.bubble_ul}`}>
         <ul className='flex relative'>{make_Bubbles()}</ul>
       </div>
     </div>

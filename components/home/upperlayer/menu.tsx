@@ -4,10 +4,6 @@ type Props = {
   title: string
 }
 
-const SpaceElement = (): JSX.Element => {
-  return <div>&nbsp;</div>
-}
-
 export default function Menu(props: Props) {
   const { title } = props
   return (

@@ -1,9 +1,11 @@
+import { ReactElement } from 'react'
 import Upperlayer from './upperlayer'
 import Footer from './footer/footer'
+// import type { NextPage } from 'next'
 
-export default function HomePage() {
+export default function HomePage(): ReactElement {
   return (
-    <div className='bg-violet-500 min-h-screen'>
+    <div className='min-h-screen bg-slate-500'>
       <Upperlayer />
       <Footer />
     </div>
