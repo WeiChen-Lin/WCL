@@ -1,0 +1,48 @@
+.textAnimate {
+  position: relative;
+  font-size: 1.5em;
+  text-decoration: none;
+  line-height: 1em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: transparent;
+  cursor: pointer;
+  -webkit-text-stroke: 1px rgb(188, 187, 187);
+}
+
+.textAnimate::before {
+  content: attr(datatype);
+  position: absolute;
+  color: rgb(185, 130, 130);
+  width: 0%;
+  overflow: hidden;
+  transition: 500ms;
+  border-right: 4px solid rgb(185, 130, 130);
+}
+
+.textAnimate:hover::before {
+  width: 100%;
+  -webkit-text-stroke: 1px rgb(185, 130, 130);
+  color: rgb(185, 130, 130);
+  filter: drop-shadow(0 0 25px rgb(185, 130, 130));
+}
+
+.textCurrent {
+  position: relative;
+  font-size: 1.5em;
+  text-decoration: none;
+  line-height: 1em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: transparent;
+  cursor: pointer;
+  color: rgb(185, 130, 130);
+}
+
+.textCurrent::before {
+  content: attr(datatype);
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  border-right: 4px solid rgb(185, 130, 130);
+}
