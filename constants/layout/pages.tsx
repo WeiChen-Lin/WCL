@@ -1,31 +1,24 @@
 export interface pageProp {
   title: string
-  active: boolean
 }
 
 export const pages: pageProp[] = [
   {
-    title: 'Home',
-    active: true
+    title: 'home'
   },
   {
-    title: 'About',
-    active: false
+    title: 'about'
   },
   {
-    title: 'Skills',
-    active: false
+    title: 'skills'
   },
   {
-    title: 'Demo',
-    active: false
+    title: 'demo'
   },
   {
-    title: 'Experience',
-    active: false
+    title: 'experience'
   },
   {
-    title: 'Contact',
-    active: false
+    title: 'contact'
   }
 ]
