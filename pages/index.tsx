@@ -1,9 +1,10 @@
 import type { NextPageWithLayout } from './_app'
 
 import Layout from 'layouts'
+import HomePage from 'components/home'
 
 const Home: NextPageWithLayout = () => {
-  return <div className=''>123</div>
+  return <HomePage />
 }
 
 Home.getLayout = function getLayout(page) {

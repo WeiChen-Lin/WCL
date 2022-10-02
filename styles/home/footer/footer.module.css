@@ -11,17 +11,7 @@
   z-index: 5;
   backdrop-filter: blur(3px);
 }
-.bubble_ul::after {
-  position: absolute;
-  content: '© WeiChen Lin 2022';
-  width: 100%;
-  z-index: 10;
-  color: black;
-  text-align: center;
-  bottom: -4px;
-  font-weight: bolder;
-  font-size: 14px;
-}
+
 @keyframes move {
   90% {
     opacity: 1;

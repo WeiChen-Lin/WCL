@@ -1,11 +1,14 @@
 import { ReactElement } from 'react'
-import Footer from './footer/footer'
-// import type { NextPage } from 'next'
+import Footer from './footer'
+import Myself from './myself'
 
 export default function HomePage(): ReactElement {
   return (
-    <div className='min-h-screen bg-slate-500'>
+    <>
+      <div className='w-full min-h-screen'>
+        <Myself />
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }

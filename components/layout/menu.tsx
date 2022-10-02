@@ -10,7 +10,6 @@ type Props = {
 export default function Menu(props: Props) {
   const { title, active, route } = props
   const router = useRouter()
-  console.log(`Push to /${route}`)
   return (
     <ul className='relative flex flex-col justify-center items-center gap-8'>
       <li>
