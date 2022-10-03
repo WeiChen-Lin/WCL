@@ -4,17 +4,20 @@ const Random_li = (dom_key: number) => {
   const seconds: number = (Math.random() * 2000) / 1000
   const width: number = Math.random() * 100 + 70
   const position: number = Math.random() * 100
+
+  const style = {
+    animationDuration: `${seconds + 2}s`,
+    animationDelay: `${seconds + 1}s`,
+    width: `${width}px`,
+    height: `${width}px`,
+    left: `${position}%`
+  }
+
   return (
     <li
       className={`${styles.bubble} rounded-full absolute bg-orange-50`}
       key={dom_key}
-      style={{
-        animationDuration: `${seconds + 2}s`,
-        animationDelay: `${seconds + 1}s`,
-        width: `${width}px`,
-        height: `${width}px`,
-        left: `${position}%`
-      }}
+      style={style}
     ></li>
   )
 }

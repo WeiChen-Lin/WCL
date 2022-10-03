@@ -15,7 +15,13 @@ export default function Icon(props: Props) {
       ${styles.glass}`}
       key={media_name}
     >
-      <a href={link}>{icon}</a>
+      <a
+        href={link}
+        target='_blank'
+        className='w-full h-full py-[10px] px-[10px]'
+      >
+        {icon}
+      </a>
     </li>
   )
 }
