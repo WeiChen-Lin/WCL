@@ -1,7 +1,7 @@
 import wcl from 'public/home/wcl.jpg'
 import Icon from './icon'
 import Image from 'next/image'
-import socailMedias from 'constants/home/myself/myself'
+import socailMedias from 'constants/home/myself'
 
 export default function Myself() {
   return (

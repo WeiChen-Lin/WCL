@@ -9,7 +9,6 @@ type Props = {
 export default function Layout({ children }: Props): ReactElement {
   const router = useRouter()
   const currentSite = router.route === '/' ? '/home' : router.route
-  console.log(currentSite)
   return (
     <div className='min-h-screen w-full bg-slate-500 flex'>
       <SideBar currentSite={currentSite} />

@@ -1,9 +1,4 @@
-import {
-  Facebook,
-  Github,
-  LinkedIn,
-  Instagram
-} from 'public/home/myself/myself_icons'
+import { Facebook, Github, LinkedIn, Instagram } from 'public/home/myself_icons'
 
 interface socailMedia {
   media_name: string
