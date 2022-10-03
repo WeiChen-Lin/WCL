@@ -5,7 +5,7 @@
 }
 
 .glass:hover {
-  transform: translateY(-20px);
+  transform: translateY(-5px);
 }
 
 .glass::before {
