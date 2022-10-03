@@ -16,7 +16,12 @@ export default function Myself() {
         <ul className='mt-10 flex'>
           {socailMedias.map((e) => {
             return (
-              <Icon icon={e.icon} media_name={e.media_name} link={e.link} />
+              <Icon
+                icon={e.icon}
+                media_name={e.media_name}
+                link={e.link}
+                key={e.media_name}
+              />
             )
           })}
         </ul>
