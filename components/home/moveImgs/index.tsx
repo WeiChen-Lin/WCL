@@ -1,39 +1,32 @@
 import moveImgIcons from 'constants/home/moveImg'
+import { parentEle } from './moveImg'
 import { ReactElement, useEffect, useRef, useState } from 'react'
 import MoveImg from './moveImg'
-
-interface shape {
-  width: number | undefined
-  height: number | undefined
-}
+import { MouseEvent } from 'react'
 
 export default function MoveImgs(): ReactElement {
-  const position_x: string[] = ['10', '30', '60', '10', '80', '15', '45', '80']
-  const position_y: string[] = ['10', '25', '15', '50', '40', '85', '75', '90']
-  const [movePercent, setMovePercent] = useState<shape>({
-    width: 0,
-    height: 0
+  const position_x: number[] = [10, 30, 60, 10, 80, 15, 45, 80]
+  const position_y: number[] = [10, 25, 15, 50, 40, 85, 75, 90]
+  const [parent, setParent] = useState<parentEle>({
+    parentX: 0,
+    parentY: 0
   })
   const ref = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    console.log(
-      `current width = ${movePercent.width}`,
-      `current height = ${movePercent.height}`
-    )
-    setMovePercent({
-      width: ref.current?.offsetWidth,
-      height: ref.current?.offsetHeight
-    })
-  }, [ref.current])
-  const handleMouseMove = () => {}
-
+  const handleMousemove = (e: MouseEvent) => {
+    setParent((prev) => ({
+      ...prev,
+      parentX: Math.floor((e.clientX * 4) / 5),
+      parentY: e.clientY
+    }))
+    console.log(`x = ${parent.parentX}\ny = ${parent.parentY}`)
+  }
   return (
     <div
       className='w-full min-h-screen absolute'
       ref={ref}
-      onMouseMove={() => {
-        handleMouseMove()
+      onMouseMove={(e) => {
+        handleMousemove(e)
       }}
     >
       {moveImgIcons.map((ele, index) => {
@@ -43,6 +36,8 @@ export default function MoveImgs(): ReactElement {
             position_x={`${position_x[index]}%`}
             position_y={`${position_y[index]}%`}
             key={ele.name}
+            parent={parent}
+            handleMousemove={handleMousemove}
           />
         )
       })}
