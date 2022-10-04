@@ -6,7 +6,6 @@ type Props = {
   position_y: string
   img: JSX.Element
   parent: parentEle
-  handleMousemove: (e: MouseEvent) => void
 }
 
 export interface parentEle {
@@ -20,7 +19,7 @@ interface clientEle {
 }
 
 export default function MoveImg(props: Props) {
-  const { position_x, position_y, img, parent, handleMousemove } = props
+  const { position_x, position_y, img, parent } = props
   const ref = useRef<HTMLDivElement>(null)
   const [childState, setChildState] = useState<clientEle>({
     clientX: 0,

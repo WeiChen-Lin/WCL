@@ -19,7 +19,6 @@ export default function MoveImgs(): ReactElement {
       parentX: Math.floor((e.clientX * 4) / 5),
       parentY: e.clientY
     }))
-    console.log(`x = ${parent.parentX}\ny = ${parent.parentY}`)
   }
   return (
     <div
@@ -37,7 +36,6 @@ export default function MoveImgs(): ReactElement {
             position_y={`${position_y[index]}%`}
             key={ele.name}
             parent={parent}
-            handleMousemove={handleMousemove}
           />
         )
       })}
