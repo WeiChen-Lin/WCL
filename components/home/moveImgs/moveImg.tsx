@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { MouseEvent } from 'react'
 
 type Props = {
   position_x: string
@@ -48,11 +47,11 @@ export default function MoveImg(props: Props) {
         left: position_y,
         transform: `translate(${
           fullPageWidth
-            ? ((parentSite.parentX - childState.clientX) / fullPageWidth) * 60
+            ? ((parentSite.parentX - childState.clientX) / fullPageWidth) * 40
             : 0
         }px, ${
           fullPageWidth
-            ? ((parentSite.parentY - childState.clientY) / fullPageWidth) * 60
+            ? ((parentSite.parentY - childState.clientY) / fullPageWidth) * 40
             : 0
         }px)`,
         transitionDuration: '0.1s'

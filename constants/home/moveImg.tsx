@@ -6,7 +6,13 @@ import {
   Skateboard,
   Dog,
   Mountain,
-  Cat
+  Cat,
+  BubbleTea,
+  Earth,
+  Planet,
+  Plant,
+  Sun,
+  Bat
 } from 'public/home/moveImg'
 
 interface moveImg {
@@ -45,6 +51,30 @@ const moveImgIcons: moveImg[] = [
   {
     name: 'cat',
     icon: <Cat />
+  },
+  {
+    name: 'bubbletea',
+    icon: <BubbleTea />
+  },
+  {
+    name: 'earth',
+    icon: <Earth />
+  },
+  {
+    name: 'planet',
+    icon: <Planet />
+  },
+  {
+    name: 'plant',
+    icon: <Plant />
+  },
+  {
+    name: 'sun',
+    icon: <Sun />
+  },
+  {
+    name: 'bat',
+    icon: <Bat />
   }
 ]
 export default moveImgIcons

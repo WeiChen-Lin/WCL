@@ -1,12 +1,16 @@
 import moveImgIcons from 'constants/home/moveImg'
 import { parentEle } from './moveImg'
-import { ReactElement, useEffect, useRef, useState } from 'react'
+import { ReactElement, useRef, useState } from 'react'
 import MoveImg from './moveImg'
 import { MouseEvent } from 'react'
 
 export default function MoveImgs(): ReactElement {
-  const position_x: number[] = [10, 30, 60, 10, 80, 15, 45, 80]
-  const position_y: number[] = [10, 25, 15, 50, 40, 85, 75, 90]
+  const position_x: number[] = [
+    15, 35, 65, 15, 85, 20, 50, 90, 80, 85, 45, 15, 25, 75
+  ]
+  const position_y: number[] = [
+    10, 25, 15, 50, 40, 85, 75, 95, 5, 60, 5, 30, 65, 85
+  ]
   const [parent, setParent] = useState<parentEle>({
     parentX: 0,
     parentY: 0
