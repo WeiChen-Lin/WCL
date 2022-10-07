@@ -1,22 +1,18 @@
 .wavetitle {
-  position: absolute;
-  top: 20%;
-  left: 20%;
   color: transparent;
-  -webkit-text-stroke: 2px rgb(201, 24, 24);
-  font-size: 8em;
+  -webkit-text-stroke: 2px rgb(176, 146, 146);
+  font-size: 3em;
   font-weight: 600;
 }
-.wavetitle_ {
+.wavetitle::before {
   position: absolute;
-  top: 20%;
-  left: 20%;
-  color: rgb(201, 24, 24);
-  font-size: 8em;
+  top: 0;
+  left: 0;
+  content: 'About me';
+  color: rgb(180, 116, 48);
   font-weight: 600;
   animation: animate 4s ease-in-out infinite;
 }
-
 @keyframes animate {
   0%,
   100% {
@@ -46,5 +42,17 @@
       99% 99%,
       0% 100%
     );
+  }
+}
+
+.arrow_border {
+  animation: rotate_border 5s linear infinite;
+}
+@keyframes rotate_border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

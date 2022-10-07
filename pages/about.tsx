@@ -1,9 +1,9 @@
 import type { NextPageWithLayout } from './_app'
 import Layout from 'layouts'
-import WaveTitle from 'components/about'
+import AboutPage from 'components/about'
 
 const About: NextPageWithLayout = () => {
-  return <WaveTitle />
+  return <AboutPage />
 }
 
 About.getLayout = function getLayout(page) {
