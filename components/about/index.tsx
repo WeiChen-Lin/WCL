@@ -6,7 +6,7 @@ import Introduct from './introduct'
 import { useState } from 'react'
 
 export default function Intro() {
-  const [isOpen, setIsOpen] = useState<Boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const handleMouseEvent = () => {
     setIsOpen((prev) => !prev)
   }
