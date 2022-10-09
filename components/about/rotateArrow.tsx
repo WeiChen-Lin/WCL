@@ -1,5 +1,5 @@
 import { Arrow } from 'public/about/arrow'
-import styles from 'styles/about/wavetitle/wavetitle.module.css'
+import styles from 'styles/about/wavetitle.module.css'
 
 interface FancyShapeProp {
   borderRadius: string
@@ -34,7 +34,7 @@ const RotateArrow = (props: ArrowProps) => {
   const { isOpen } = props
   return (
     <div
-      className={`w-6 h-6 mt-[30%] ml-[10%] relative cursor-pointer
+      className={`w-6 h-6 mt-[30%] ml-[5%] relative cursor-pointer
       ${isOpen ? 'rotate-90 duration-1000' : ''}`}
     >
       {shapes.map((e, index) => {

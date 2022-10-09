@@ -19,13 +19,15 @@ export default function Intro() {
         `}
       >
         <div
-          className={`transition-all duration-1000
-          ${isOpen ? 'w-[600px]' : 'w-[400px]'}`}
+          className={`transition-all duration-1000 ${
+            isOpen ? 'w-[600px]' : 'w-[400px]'
+          }`}
         >
           <WaveTitle />
           <div
-            className={`bg-slate-300 h-64 rounded-lg duration-1000 transition-all flex
-            ${isOpen ? 'h-96' : 'h-64'}`}
+            className={`bg-slate-300/25 h-64 rounded-lg duration-1000 transition-all flex ${
+              isOpen ? 'h-96' : 'h-64'
+            }`}
             onMouseEnter={() => {
               handleMouseEvent()
             }}
@@ -34,12 +36,12 @@ export default function Intro() {
             }}
           >
             <RotateArrow isOpen={isOpen} />
-            <Introduct />
+            <Introduct isOpen={isOpen} />
           </div>
         </div>
         <div
-          className={`bg-slate-600 absolute right-4 -top-11 overflow-hidden rounded-xl
-          ${isOpen ? 'h-[250px]' : 'w-[400px]'}
+          className={`bg-slate-600 absolute right-4 -top-11 overflow-hidden rounded-xl h-[250px]
+          ${isOpen ? 'w-[400px]' : 'w-[400px]'}
           `}
         >
           <Image src={bg} width={400} height={250}></Image>
