@@ -21,7 +21,7 @@ const FancyShape = (props: FancyShapeProp) => {
   const direction: string = Math.random() > 0.5 ? 'normal' : 'reverse'
   return (
     <span
-      className={`absolute -top-5 -left-5 w-16 h-16 border border-amber-800 ${styles.arrow_border}`}
+      className={`absolute -top-3 -left-3 w-10 h-10 border border-amber-800 ${styles.arrow_border}`}
       style={{
         borderRadius: borderRadius,
         animationDirection: direction
@@ -34,7 +34,7 @@ const RotateArrow = (props: ArrowProps) => {
   const { isOpen } = props
   return (
     <div
-      className={`w-6 h-6 mt-[30%] ml-[5%] relative cursor-pointer
+      className={`w-4 h-4 mt-[15%] ml-[7%] relative cursor-pointer
       ${isOpen ? 'rotate-90 duration-1000' : ''}`}
     >
       {shapes.map((e, index) => {

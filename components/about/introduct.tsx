@@ -36,18 +36,16 @@ const handleIntroduction = (isOpen: boolean) => {
   let delayInit: number = 0
 
   introduction.split('\n').forEach((ele) => {
-    console.log(ele)
     const word_list: string[] = ele.split(' ')
     const num: number = word_list.length
-    console.log(word_list)
     for (let i = 0; i <= num; i++) {
       if (i !== num) {
-        console.log(word_list[i])
         intros.push(
           <Intro_unit
             word={word_list[i] + ' '}
             delay={delayInit + 0.05}
             isOpen={isOpen}
+            key={word_list[i]}
           />
         )
       } else {
@@ -64,7 +62,7 @@ export default function Introduct(props: Animated) {
   return (
     <>
       <a
-        className={`pt-[5%] pl-[7%] pr-[3%] w-full font-sans`}
+        className={`pt-[5%] pl-[8%] pr-[3%] w-full font-sans`}
         onMouseEnter={() => {}}
         onMouseLeave={() => {}}
       >
