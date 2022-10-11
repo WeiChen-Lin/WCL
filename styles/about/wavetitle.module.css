@@ -60,9 +60,8 @@
   display: inline-block;
   background: linear-gradient(90deg, #b42c2c, #b42c2c),
     linear-gradient(90deg, rgb(191, 189, 189), rgb(191, 189, 189));
-  background-size: 100% 100%, 0 100px;
   background-repeat: no-repeat;
-  background-position: 100% 100%, 0 100%;
+  background-position: 100% 100%, 100% 100%;
   color: transparent;
   background-clip: text;
   opacity: 0;
