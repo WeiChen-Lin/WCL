@@ -26,7 +26,7 @@ export default function Intro() {
           <WaveTitle />
           <div
             className={`bg-slate-300/25 h-64 rounded-lg duration-1000 transition-all flex ${
-              isOpen ? 'h-64' : 'h-32'
+              isOpen ? 'h-48' : 'h-32'
             }`}
             onMouseEnter={() => {
               handleMouseEvent()

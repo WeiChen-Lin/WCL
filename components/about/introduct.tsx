@@ -17,13 +17,18 @@ interface Animated_Word extends Animated {
 
 const Intro_unit = (props: Animated_Word) => {
   const { word, delay, isOpen } = props
-  const delayToString = (1 + delay).toString()
+  const delayToString = (0.6 + delay).toString()
   return (
     <span
       className={`${styles.textAnimate}`}
       style={{
-        transitionDelay: `${delayToString}s`,
-        backgroundSize: isOpen ? '100% 100%' : '0 100%'
+        transform: `${isOpen ? 'translateY(0px)' : 'translateY(15px)'}`,
+        backgroundSize: isOpen ? '0 100%, 100% 100%' : '100% 100%, 0 100px',
+        opacity: isOpen ? '1' : '0',
+        transition: isOpen
+          ? '.1s background linear, 0.5s opacity ease-in, 0.2s transform linear'
+          : '',
+        transitionDelay: isOpen ? `${delayToString}s, 0.4s, 0.45s` : '0s'
       }}
     >
       {word}
@@ -42,16 +47,16 @@ const handleIntroduction = (isOpen: boolean) => {
       if (i !== num) {
         intros.push(
           <Intro_unit
-            word={word_list[i] + ' '}
-            delay={delayInit + 0.05}
+            word={word_list[i] + '\u00A0'}
+            delay={delayInit}
             isOpen={isOpen}
-            key={word_list[i]}
+            key={word_list[i] + delayInit.toString()}
           />
         )
       } else {
-        intros.push(<br />)
+        intros.push(<br key={delayInit.toString()} />)
       }
-      delayInit = delayInit + 0.1
+      delayInit = delayInit + 0.04
     }
   })
   return intros
