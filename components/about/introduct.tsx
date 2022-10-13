@@ -56,7 +56,7 @@ const handleIntroduction = (isOpen: boolean) => {
       } else {
         intros.push(<br key={delayInit.toString()} />)
       }
-      delayInit = delayInit + 0.01
+      delayInit = delayInit + 0.02
     }
   })
   return intros

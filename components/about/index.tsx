@@ -1,9 +1,28 @@
-import Image from 'next/image'
-import bg from 'public/about/bg.jpg'
 import WaveTitle from './wavetitle'
 import RotateArrow from './rotateArrow'
 import Introduct from './introduct'
 import { useState } from 'react'
+import styles from 'styles/about/wavetitle.module.css'
+
+const makeBox = (): JSX.Element[] => {
+  const boxes: JSX.Element[] = []
+  for (let index = 0; index < 5; index++) {
+    for (let num = 0; num < 4; num++) {
+      const random: string = (Math.random() * 2).toFixed(2)
+      const image_name: string = `Image${index}${num}`
+      boxes.push(
+        <div
+          className={`${styles.imgBlock}`}
+          style={{
+            animationDelay: `${random}s`,
+            background: `url('/about/splitoceans/${num}${index}.png')`
+          }}
+        ></div>
+      )
+    }
+  }
+  return boxes
+}
 
 export default function Intro() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -14,7 +33,7 @@ export default function Intro() {
   return (
     <>
       <div
-        className={`flex m-auto mt-[15%] relative transition-width duration-1000
+        className={`flex m-auto mt-[15%] relative transition-width duration-1000 
         ${isOpen ? 'w-[975px]' : 'w-[650px]'}
         `}
       >
@@ -39,13 +58,11 @@ export default function Intro() {
             <Introduct isOpen={isOpen} />
           </div>
         </div>
-        <div
-          className={`bg-slate-600 absolute right-4 -top-11 overflow-hidden rounded-xl h-[250px]
-          ${isOpen ? 'w-[400px]' : 'w-[400px]'}
-          `}
-        >
-          <Image src={bg} width={400} height={250}></Image>
-        </div>
+        <section className={`${styles.imgAnimate}`}>
+          <div className='relative w-[400px] h-[250px]'>
+            <div className={`${styles.imgBanner}`}>{makeBox()}</div>
+          </div>
+        </section>
       </div>
     </>
   )
