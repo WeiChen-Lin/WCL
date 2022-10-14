@@ -1,4 +1,4 @@
-import styles from 'styles/about/wavetitle.module.css'
+import styles from 'styles/about/about.module.css'
 
 const introduction: string = `I am WeiChen Lin,
 A web developer from Taipei, Taiwan.
@@ -66,11 +66,7 @@ export default function Introduct(props: Animated) {
   const { isOpen } = props
   return (
     <>
-      <a
-        className={`pt-[5%] pl-[8%] pr-[3%] w-full font-sans`}
-        onMouseEnter={() => {}}
-        onMouseLeave={() => {}}
-      >
+      <a className='pt-[5%] pl-[8%] pr-[3%] w-full font-sans'>
         {handleIntroduction(isOpen)}
       </a>
     </>

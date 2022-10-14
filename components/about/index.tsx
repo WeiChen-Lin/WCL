@@ -2,27 +2,7 @@ import WaveTitle from './wavetitle'
 import RotateArrow from './rotateArrow'
 import Introduct from './introduct'
 import { useState } from 'react'
-import styles from 'styles/about/wavetitle.module.css'
-
-const makeBox = (): JSX.Element[] => {
-  const boxes: JSX.Element[] = []
-  for (let index = 0; index < 5; index++) {
-    for (let num = 0; num < 4; num++) {
-      const random: string = (Math.random() * 2).toFixed(2)
-      const image_name: string = `Image${index}${num}`
-      boxes.push(
-        <div
-          className={`${styles.imgBlock}`}
-          style={{
-            animationDelay: `${random}s`,
-            background: `url('/about/splitoceans/${num}${index}.png')`
-          }}
-        ></div>
-      )
-    }
-  }
-  return boxes
-}
+import PuzzleBg from './puzzle'
 
 export default function Intro() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -58,11 +38,7 @@ export default function Intro() {
             <Introduct isOpen={isOpen} />
           </div>
         </div>
-        <section className={`${styles.imgAnimate}`}>
-          <div className='relative w-[400px] h-[250px]'>
-            <div className={`${styles.imgBanner}`}>{makeBox()}</div>
-          </div>
-        </section>
+        <PuzzleBg />
       </div>
     </>
   )

@@ -85,7 +85,6 @@
   perspective: 500px;
   transform-style: preserve-3d;
   border-radius: 12px;
-  background-repeat: no-repeat;
 }
 .imgBlock {
   position: relative;
@@ -93,23 +92,16 @@
   width: 100px;
   height: 50px;
   transform: translateZ(1000px);
-  /* background: url('../../public/about/splitoceans/00.png'); */
   background-size: cover;
-  animation: bgAnimate 2s ease-in-out forwards;
+  background-attachment: fixed;
+  animation: bgAnimate 1.5s ease-in-out forwards;
 }
 
 @keyframes bgAnimate {
   0% {
-    /* transform: translateZ(1000px); */
-    /* background-position: center; */
-    background-size: cover;
-    background-attachment: fixed;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   }
   100% {
     transform: translateZ(0px);
-    /* background-position: center; */
-    background-size: cover;
-    background-attachment: fixed;
   }
 }

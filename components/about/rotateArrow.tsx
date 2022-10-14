@@ -1,5 +1,5 @@
 import { Arrow } from 'public/about/arrow'
-import styles from 'styles/about/wavetitle.module.css'
+import styles from 'styles/about/about.module.css'
 
 interface FancyShapeProp {
   borderRadius: string

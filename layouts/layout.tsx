@@ -1,7 +1,7 @@
 import { ReactElement } from 'react'
 import SideBar from './sidebar'
 import { useRouter } from 'next/router'
-import styles from 'styles/about/wavetitle.module.css'
+import styles from 'styles/about/about.module.css'
 
 type Props = {
   children?: ReactElement
