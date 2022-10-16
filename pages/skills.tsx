@@ -1,13 +1,14 @@
 import type { NextPageWithLayout } from './_app'
 
 import Layout from 'layouts'
+import SkillPage from 'components/skills'
 
 const Skill: NextPageWithLayout = () => {
-  return <div className=''>123</div>
+  return <SkillPage />
 }
 
-Skill.getLayout = function getLayout() {
-  return <Layout></Layout>
+Skill.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>
 }
 
 export default Skill
