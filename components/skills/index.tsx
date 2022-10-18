@@ -2,11 +2,24 @@ import 'react'
 import { useEffect, useRef, useState } from 'react'
 import styles from 'styles/skill/skill.module.css'
 import Cube from './cube'
+import React from 'public/skill/skill'
 
 interface cubeBgSite {
   positionX: number
   positionY: number
 }
+
+const skillsPic: JSX.Element[] = [
+  <React className={`${styles.cube_unit_img}`} />,
+  <React className={`${styles.cube_unit_img}`} />,
+  <React className={`${styles.cube_unit_img}`} />,
+  <React className={`${styles.cube_unit_img}`} />,
+  <React className={`${styles.cube_unit_img}`} />,
+  <React className={`${styles.cube_unit_img}`} />,
+  <React className={`${styles.cube_unit_img}`} />,
+  <React className={`${styles.cube_unit_img}`} />,
+  <React className={`${styles.cube_unit_img}`} />
+]
 
 export default function SkillPage() {
   const [cubeBg, setCubeBg] = useState<cubeBgSite>({
@@ -34,8 +47,10 @@ export default function SkillPage() {
           top: `${top_num}px`
         }}
       >
-        <Cube />
-        <h1 className={`${styles.aspect}`}>FrontEnd</h1>
+        <Cube skills={skillsPic} />
+        <h1 className={`${styles.aspect} ${styles.cube_rotate_animate}`}>
+          FrontEnd
+        </h1>
       </div>
     </div>
   )
