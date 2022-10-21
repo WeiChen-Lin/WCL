@@ -1,32 +1,30 @@
 import 'react'
 import { useEffect, useRef, useState } from 'react'
-import styles from 'styles/skill/skill.module.css'
+import styles from 'styles/skill/cube.module.css'
 import Cube from './cube'
+import Field from './field'
 import React from 'public/skill/skill'
+import Skills from 'constants/skill'
+import ListItem from './listitem'
+import Skill from 'constants/skill/interface'
 
 interface cubeBgSite {
   positionX: number
   positionY: number
 }
 
-const skillsPic: JSX.Element[] = [
-  <React className={`${styles.cube_unit_img}`} />,
-  <React className={`${styles.cube_unit_img}`} />,
-  <React className={`${styles.cube_unit_img}`} />,
-  <React className={`${styles.cube_unit_img}`} />,
-  <React className={`${styles.cube_unit_img}`} />,
-  <React className={`${styles.cube_unit_img}`} />,
-  <React className={`${styles.cube_unit_img}`} />,
-  <React className={`${styles.cube_unit_img}`} />,
-  <React className={`${styles.cube_unit_img}`} />
-]
-
 export default function SkillPage() {
+  const defaultCubeName = Object.keys(Skills)[0]
+
   const [cubeBg, setCubeBg] = useState<cubeBgSite>({
     positionX: 0,
     positionY: 0
   })
+
   const ref = useRef<HTMLDivElement>(null)
+  const [cubeFace, setCubeFace] = useState<string>(defaultCubeName)
+  const [cubeImgs, setCubeImgs] = useState<Skill[]>(Skills['Frontend'])
+  const [targetCube, setTargetCube] = useState<string>('')
 
   useEffect(() => {
     setCubeBg({
@@ -34,24 +32,53 @@ export default function SkillPage() {
       positionX: ref?.current?.clientWidth || 0,
       positionY: ref?.current?.clientHeight || 0
     })
-  }, [ref])
+    console.log(cubeBg.positionX)
+  }, [ref?.current])
 
-  const top_num: number = (cubeBg.positionY - 400) / 2
+  const listItemWidth: number = cubeBg.positionX - 550
 
   return (
-    <div ref={ref} className='w-full h-screen relative flex justify-around'>
-      <div className='w-[400px] bg-blue-300 h-full'>123</div>
+    <>
       <div
-        className={`${styles.container} w-[600px] h-[400px] right-4`}
-        style={{
-          top: `${top_num}px`
-        }}
+        ref={ref}
+        className='w-full h-screen relative flex flex-col overflow-hidden justify-start'
       >
-        <Cube skills={skillsPic} />
-        <h1 className={`${styles.aspect} ${styles.cube_rotate_animate}`}>
-          FrontEnd
-        </h1>
+        <div className='h-1/5 w-full flex justify-evenly pt-10'>
+          {Object.keys(Skills).map((e: string) => (
+            <Field
+              name={e}
+              current={cubeFace}
+              onChange={() => {
+                setCubeFace(e)
+                setCubeImgs(Skills[e])
+              }}
+            />
+          ))}
+        </div>
+        <div className='flex mt-36 justify-between'>
+          <div className={`${styles.container} ml-20`}>
+            <Cube skills={cubeImgs} targetCube={targetCube} />
+            <h1 className={`${styles.aspect} ${styles.cube_rotate_animate}`}>
+              {cubeFace}
+            </h1>
+          </div>
+          <div
+            className='ml-10 flex flex-wrap h-4/5 overflow-scroll'
+            style={{
+              width: `${listItemWidth}px`
+            }}
+          >
+            {Object.values(cubeImgs).map((e) => (
+              <ListItem
+                name={e.name}
+                onChange={() => {
+                  setTargetCube(e.name)
+                }}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }

@@ -1,0 +1,49 @@
+.listitem {
+  height: 58px;
+  line-height: 18px;
+  font-size: 18px;
+  padding: 20px 10px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgb(175, 175, 175);
+  z-index: 0;
+  cursor: pointer;
+}
+.listitem:hover {
+  color: white;
+}
+.listitem:hover::before {
+  transition: 0.5s;
+  transform: scaleX(1);
+}
+.listitem:hover::after {
+  transition: 0.5s;
+  transform: scaleX(1);
+}
+.listitem::before {
+  z-index: -1;
+  content: '';
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: 0.5s;
+  width: 100%;
+  background-color: rgb(149, 149, 20);
+  height: 29px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.listitem::after {
+  z-index: -1;
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.5s;
+  width: 100%;
+  background-color: rgb(91, 149, 113);
+  height: 29px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

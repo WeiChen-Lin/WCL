@@ -10,8 +10,8 @@
   max-width: 200px;
   max-height: 100px;
   display: flex;
-  left: 280px;
-  top: 50px;
+  left: 200px;
+  top: 10px;
   translate: calc(80px * var(--cube_face_site))
     calc(80px * var(--cube_face_site));
   z-index: calc(1 * var(--cube_face_index));
@@ -60,9 +60,6 @@
 .cube_unit_up {
   translate: calc(-80px * var(--cube_col_site_x)) -20px;
 }
-.cube_unit_up {
-  translate: calc(-80px * var(--cube_col_site_x)) -20px;
-}
 .cube_unit_label {
   position: absolute;
   top: -80px;
@@ -107,7 +104,7 @@
 }
 
 .aspect {
-  translate: 280px 210px;
+  translate: 200px 170px;
   background-color: aquamarine;
   z-index: 10;
   width: 240px;

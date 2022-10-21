@@ -8,12 +8,6 @@ const React = (props: Props) => (
     width={256}
     height={256}
     viewBox='0 -14 256 256'
-    onMouseEnter={() => {
-      console.log('mouse In')
-    }}
-    onMouseLeave={() => {
-      console.log('mouse Out')
-    }}
     xmlns='http://www.w3.org/2000/svg'
     preserveAspectRatio='xMidYMid'
     {...props}

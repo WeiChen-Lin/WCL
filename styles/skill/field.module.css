@@ -1,0 +1,48 @@
+.field {
+  position: relative;
+  padding: 20px;
+  margin: 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  -webkit-box-reflect: below 1px -webkit-linear-gradient(transparent, #0003);
+  height: 58px;
+  line-height: 18px;
+  font-size: 18px;
+  cursor: pointer;
+  filter: hue-rotate(115deg);
+}
+.field:hover {
+  background: rgb(148, 64, 64);
+  box-shadow: 0 0 20px rgb(148, 64, 64);
+  transition-delay: 0.2s;
+}
+.field:hover::before {
+  width: 100%;
+  height: 100%;
+}
+.field::before {
+  transition: 0.2s;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid rgb(148, 64, 64);
+  border-left: 2px solid rgb(121, 51, 51);
+}
+.field::after {
+  transition: 0.5s;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid rgb(148, 64, 64);
+  border-right: 2px solid rgb(121, 51, 51);
+}
+.field:hover::after {
+  width: 100%;
+  height: 100%;
+}
