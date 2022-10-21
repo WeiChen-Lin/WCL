@@ -46,6 +46,7 @@ export default function SkillPage() {
         <div className='h-1/5 w-full flex justify-evenly pt-10'>
           {Object.keys(Skills).map((e: string) => (
             <Field
+              key={e}
               name={e}
               current={cubeFace}
               onChange={() => {
@@ -70,6 +71,7 @@ export default function SkillPage() {
           >
             {Object.values(cubeImgs).map((e) => (
               <ListItem
+                key={e.name}
                 name={e.name}
                 onChange={() => {
                   setTargetCube(e.name)
