@@ -1,5 +1,4 @@
 import styles from 'styles/skill/cube.module.css'
-import React from 'public/skill/skill'
 import { useState } from 'react'
 import Skill from 'constants/skill/interface'
 

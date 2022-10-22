@@ -1,5 +1,7 @@
 import Frontend from './frontend'
 import Backend from './backend'
+import Database from './database'
+import Tools from './tools'
 import Skill from './interface'
 
 interface Skills_type {
@@ -8,9 +10,9 @@ interface Skills_type {
 
 const Skills: Skills_type = {
   Frontend: Frontend,
-  Backend: Backend
-  // Database: Frontend,
-  // Tools: Frontend
+  Backend: Backend,
+  Database: Database,
+  Tools: Tools
 }
 
 export default Skills
