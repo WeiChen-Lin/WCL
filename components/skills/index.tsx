@@ -74,7 +74,7 @@ export default function SkillPage() {
             </h1>
           </div>
           <div
-            className='ml-10 flex flex-wrap h-4/5 overflow-scroll'
+            className='ml-10 flex flex-wrap h-4/5'
             style={{
               width: `${listItemWidth}px`
             }}
