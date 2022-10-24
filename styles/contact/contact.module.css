@@ -1,0 +1,45 @@
+/* .bg {
+  height: 200%;
+  background: radial-gradient(rgb(222, 220, 220), rgb(100 116 139));
+  background-repeat: no-repeat;
+  background-position: 0% -500px;
+} */
+.bulb {
+  background-color: rgb(133, 132, 132);
+  left: -38px;
+  animation: blub_on 2s infinite;
+}
+.bulb::before {
+  content: '';
+  position: absolute;
+  left: 22.5px;
+  top: -50px;
+  width: 35px;
+  height: 80px;
+  background-color: rgb(133, 132, 132);
+  border-top: 20px solid black;
+  border-radius: 10px;
+  animation: blub_on 2s infinite;
+}
+@keyframes blub_on {
+  from {
+    background-color: rgb(133, 132, 132);
+  }
+  to {
+    background-color: white;
+  }
+}
+.blub_light_on {
+  top: 100px;
+  left: -54px;
+  filter: blur(30px);
+  animation: blub_on_blur 2s infinite;
+}
+@keyframes blub_on_blur {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

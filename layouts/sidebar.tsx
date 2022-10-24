@@ -12,7 +12,6 @@ export default function SideBar(props: Props) {
         WeiChen Lin<span className='text-5xl text-red-200'>.</span>
       </h1>
       <Menu currentSite={currentSite}></Menu>
-      <div></div>
       <p className='text-sm'>© WeiChen Lin 2022</p>
     </div>
   )
