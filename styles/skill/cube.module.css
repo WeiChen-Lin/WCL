@@ -15,12 +15,13 @@
   translate: calc(80px * var(--cube_face_site))
     calc(80px * var(--cube_face_site));
   z-index: calc(1 * var(--cube_face_index));
-  animation: test 0.5s forwards;
 }
-.cube_rotate_animate {
-  animation: test 0.5s forwards;
+
+.cube_rotate_effect {
+  animation: cube_rotate 0.5s forwards;
 }
-@keyframes test {
+
+@keyframes cube_rotate {
   0% {
     transform-origin: right;
     transform: rotate3d(0deg);
@@ -56,6 +57,18 @@
   transform-origin: bottom;
   transform: skewX(45deg);
   z-index: 10;
+  animation: img_reveal 0.5s forwards;
+}
+@keyframes img_reveal {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .cube_unit_up {
   translate: calc(-80px * var(--cube_col_site_x)) -20px;

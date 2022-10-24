@@ -23,6 +23,7 @@ export default function SkillPage() {
   const [cubeFace, setCubeFace] = useState<string>(defaultCubeName)
   const [cubeImgs, setCubeImgs] = useState<Skill[]>(Skills['Frontend'])
   const [targetCube, setTargetCube] = useState<string>('')
+  const [isRotate, setIsRotate] = useState(true)
 
   useEffect(() => {
     setCubeBg({
@@ -30,7 +31,6 @@ export default function SkillPage() {
       positionX: ref?.current?.clientWidth || 0,
       positionY: ref?.current?.clientHeight || 0
     })
-    console.log(cubeBg.positionX)
   }, [ref?.current])
 
   const listItemWidth: number = cubeBg.positionX - 550
@@ -48,6 +48,10 @@ export default function SkillPage() {
               name={e}
               current={cubeFace}
               onChange={() => {
+                setIsRotate(false)
+                setTimeout(() => {
+                  setIsRotate(true)
+                }, 100)
                 setCubeFace(e)
                 setCubeImgs(Skills[e])
               }}
@@ -56,8 +60,16 @@ export default function SkillPage() {
         </div>
         <div className='flex mt-36 justify-between'>
           <div className={`${styles.container} ml-20`}>
-            <Cube skills={cubeImgs} targetCube={targetCube} />
-            <h1 className={`${styles.aspect} ${styles.cube_rotate_animate}`}>
+            <Cube
+              skills={cubeImgs}
+              targetCube={targetCube}
+              isRotate={isRotate}
+            />
+            <h1
+              className={`${styles.aspect} ${
+                isRotate ? styles.cube_rotate_effect : ''
+              }`}
+            >
               {cubeFace}
             </h1>
           </div>

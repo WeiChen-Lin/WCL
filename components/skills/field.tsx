@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default function Field(props: Props) {
-  const { name, current, onChange } = props
+  const { name, onChange } = props
   const handleClick = (name: string) => {
     onChange(name)
   }

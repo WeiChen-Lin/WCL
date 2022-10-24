@@ -10,6 +10,7 @@ declare module 'react' {
 interface Cube {
   skills: Skill[]
   targetCube: string
+  isRotate?: boolean
 }
 interface CubeFace extends Cube {
   col_face: number
@@ -62,11 +63,13 @@ const Cube_column = (props: CubeColumn) => {
 }
 
 const Cube_face = (props: CubeFace) => {
-  const { col_face, skills, targetCube } = props
+  const { col_face, skills, targetCube, isRotate } = props
   return (
     <>
       <div
-        className={`${styles.cube_face}`}
+        className={`${styles.cube_face} ${
+          isRotate ? styles.cube_rotate_effect : ''
+        }`}
         style={{ '--cube_face_site': col_face, '--cube_face_index': 2 }}
       >
         <Cube_column
@@ -93,13 +96,28 @@ const Cube_face = (props: CubeFace) => {
 }
 
 export default function Cube(props: Cube) {
-  const { skills, targetCube } = props
+  const { skills, targetCube, isRotate } = props
 
   return (
     <>
-      <Cube_face col_face={0} skills={skills} targetCube={targetCube} />
-      <Cube_face col_face={1} skills={skills} targetCube={targetCube} />
-      <Cube_face col_face={2} skills={skills} targetCube={targetCube} />
+      <Cube_face
+        col_face={0}
+        skills={skills}
+        targetCube={targetCube}
+        isRotate={isRotate}
+      />
+      <Cube_face
+        col_face={1}
+        skills={skills}
+        targetCube={targetCube}
+        isRotate={isRotate}
+      />
+      <Cube_face
+        col_face={2}
+        skills={skills}
+        targetCube={targetCube}
+        isRotate={isRotate}
+      />
     </>
   )
 }
