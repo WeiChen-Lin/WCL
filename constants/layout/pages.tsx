@@ -13,9 +13,6 @@ export const pages: pageProp[] = [
     title: 'skills'
   },
   {
-    title: 'demo'
-  },
-  {
     title: 'experience'
   },
   {
