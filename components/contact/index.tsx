@@ -1,4 +1,5 @@
 import styles from 'styles/contact/contact.module.css'
+import ContactInput from './input'
 
 export default function ContactPage() {
   return (
@@ -12,6 +13,21 @@ export default function ContactPage() {
           <div
             className={`absolute w-28 h-28 bg-white rounded-full ${styles.blub_light_on}`}
           ></div>
+        </div>
+      </div>
+      <div
+        className={`w-3/4 h-1/2 absolute top-[25%] left-[12.5%] my-12 flex flex-col bg-white/10  ${styles.glassBg}`}
+      >
+        <div className='m-4'>
+          <div className='w-12 h-12 bg-yellow-200/30 rounded absolute -top-2 -left-4 animate-bounce'></div>
+          <p
+            className={`relative text-3xl font-medium text-white/60 ${styles.title}`}
+          >
+            Contact With Me
+          </p>
+        </div>
+        <div className={`w-full h-full`}>
+          <ContactInput />
         </div>
       </div>
     </div>
