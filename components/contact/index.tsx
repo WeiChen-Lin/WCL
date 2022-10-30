@@ -1,6 +1,6 @@
 import styles from 'styles/contact/contact.module.css'
-import ContactInput from './input'
-
+import { ContactInput, ContactTextField } from './input'
+import SubmitBut from './button'
 export default function ContactPage() {
   return (
     <div className={`h-screen w-full relative overflow-hidden`}>
@@ -16,7 +16,7 @@ export default function ContactPage() {
         </div>
       </div>
       <div
-        className={`w-3/4 h-1/2 absolute top-[25%] left-[12.5%] my-12 flex flex-col bg-white/10  ${styles.glassBg}`}
+        className={`w-3/4 h-full absolute top-[25%] left-[12.5%] my-12 flex flex-col bg-white/10  ${styles.glassBg}`}
       >
         <div className='m-4'>
           <div className='w-12 h-12 bg-yellow-200/30 rounded absolute -top-2 -left-4 animate-bounce'></div>
@@ -26,8 +26,12 @@ export default function ContactPage() {
             Contact With Me
           </p>
         </div>
-        <div className={`w-full h-full`}>
-          <ContactInput />
+        <div className={`w-full h-[40%] flex flex-wrap`}>
+          <ContactInput label={'name'} css={'w-1/2'} />
+          <ContactInput label={'email'} css={'w-1/2'} />
+          <ContactInput label={'title'} css={'w-full'} />
+          <ContactTextField label={'message'} css={'w-full'} />
+          <SubmitBut />
         </div>
       </div>
     </div>

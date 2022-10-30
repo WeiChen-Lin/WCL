@@ -57,3 +57,9 @@
   bottom: -5px;
   left: 0;
 }
+.buttonAnimate {
+  transition: top 0.2s ease, opacity 0.05s linear;
+  transition-delay: var(--word);
+  top: 40px;
+  opacity: 0.2;
+}
