@@ -1,11 +1,11 @@
 // ammount to add on each button press
-const confettiCount = 20
+const confettiCount = 1
 const sequinCount = 10
 
 // "physics" variables
 const gravityConfetti = 0.3
 const gravitySequins = 0.55
-const dragConfetti = 0.075
+const dragConfetti = 0.75
 const dragSequins = 0.02
 const terminalVelocity = 3
 
@@ -87,6 +87,7 @@ Confetto.prototype.update = function () {
 
   // spin confetto by scaling y and set the color, .09 just slows cosine frequency
   this.scale.y = Math.cos((this.position.y + this.randomModifier) * 0.09)
+  console.log('trigger update')
 }
 
 // Sequin Class
@@ -133,6 +134,7 @@ render = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
 
   confetti.forEach((confetto, index) => {
+    console.log('make one confetto')
     let width = confetto.dimensions.x * confetto.scale.x
     let height = confetto.dimensions.y * confetto.scale.y
 

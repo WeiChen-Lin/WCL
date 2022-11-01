@@ -26,7 +26,9 @@ export default function ContactPage() {
             Contact With Me
           </p>
         </div>
-        <div className={`w-full h-[40%] flex flex-wrap`}>
+        <div
+          className={`w-full h-[40%] flex flex-wrap items-center justify-center`}
+        >
           <ContactInput label={'name'} css={'w-1/2'} />
           <ContactInput label={'email'} css={'w-1/2'} />
           <ContactInput label={'title'} css={'w-full'} />
