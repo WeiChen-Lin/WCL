@@ -15,18 +15,22 @@ const SuccessSVG = ({ classname }: { classname?: string }) => {
   )
 }
 
-const AppearWord = (props: WordProps) => {
-  const { sec, word, index, width } = props
+const AppearWord = (props: Partial<WordProps>) => {
+  const { sec, word, index } = props
+  const [effect, setEffect] = useState(false)
   const isFirstPosition: boolean = index === 0 ? true : false
   const finalPosition: number = isFirstPosition
     ? 0
     : success.slice(0, index).reduce((acc, cur) => acc + cur, 0)
 
+  setTimeout(() => {
+    setEffect(true)
+  }, 200)
+
   return (
     <span
-      className={`absolute text-base font-black top-2 opacity-5	left-52 ${
-        width ? '' : styles.wordAppear
-      }`}
+      className={`absolute text-base font-black top-2 opacity-5	left-52
+      ${effect ? styles.wordAppear : ''}`}
       style={{
         '--word': `${sec}ms`,
         '--pos': `${50 + finalPosition}px`
@@ -37,12 +41,7 @@ const AppearWord = (props: WordProps) => {
   )
 }
 
-export default function SuccessText(props: WordProps) {
-  const { width } = props
-  const [effect, setEffect] = useState(width)
-  setTimeout(() => {
-    setEffect((prev) => !prev)
-  }, 200)
+export default function SuccessText() {
   return (
     <>
       <SuccessSVG />
@@ -54,7 +53,6 @@ export default function SuccessText(props: WordProps) {
             index={index}
             key={`success_${ele}_${index}`}
             targetWord={success}
-            width={effect}
           />
         )
       })}

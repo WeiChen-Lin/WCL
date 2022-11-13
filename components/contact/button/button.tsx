@@ -15,7 +15,7 @@ export default function SubmitBut(props: { email: Email }) {
     SubmitText: <SubmitText width={isSending} />,
     Loading: <Loading />,
     Confettis: <Confettis />,
-    SuccessText: <SuccessText width={isSending} />
+    SuccessText: <SuccessText />
   }
 
   return (

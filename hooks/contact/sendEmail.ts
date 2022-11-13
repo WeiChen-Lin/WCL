@@ -39,12 +39,12 @@ export default function useSendEmail(email: Email) {
           setIsSending((prev) => !prev)
           setIsOverflow((prev) => !prev)
           setCurrentText('Confettis')
-          await asyncSettimeout(1500).then(() => {
+          await asyncSettimeout(1500).then(async () => {
             setIsOverflow((prev) => !prev)
             setCurrentText('SuccessText')
-          })
-          await asyncSettimeout(2000).then(() => {
-            setCurrentText('SubmitText')
+            await asyncSettimeout(2000).then(() => {
+              setCurrentText('SubmitText')
+            })
           })
         }
       })
