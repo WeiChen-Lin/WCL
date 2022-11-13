@@ -32,7 +32,7 @@ export default function useSendEmail(email: Email) {
     await asyncSettimeout(500).then(() => {
       setCurrentText('Loading')
     })
-    emailjs
+    await emailjs
       .send(serviceID, templateID, templateParams, publicKey)
       .then(async (res: EmailJSResponseStatus) => {
         if (res.status === 200) {
