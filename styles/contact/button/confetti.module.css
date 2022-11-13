@@ -1,0 +1,99 @@
+.confetti_container {
+  perspective: 700px;
+  position: relative;
+}
+.confetti {
+  position: absolute;
+  top: 320px;
+  left: 182px;
+  width: 10px;
+  height: 15px;
+  background-color: var(--color);
+  animation: confetti-animate 2.5s linear forwards;
+  opacity: 0;
+}
+@keyframes confetti-animate {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+  }
+  10% {
+    transform: translate3d(calc(var(--x)), calc(var(--y)), 0) rotateX(0)
+      rotateY(0);
+    opacity: 0;
+  }
+  20% {
+    transform: translate3d(
+        calc((var(--x) + var(--px)) * 1px),
+        calc((var(--y) + var(--py) * 1) * 1px),
+        0
+      )
+      rotateX(200deg) rotateY(200deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translate3d(
+        calc((var(--x) + var(--px)) * 1px),
+        calc((var(--y) + var(--py) * 2) * 1px),
+        0
+      )
+      rotateX(600deg) rotateY(600deg);
+  }
+  40% {
+    transform: translate3d(
+        calc((var(--x) - var(--px)) * 1px),
+        calc((var(--y) + var(--py) * 3) * 1px),
+        0
+      )
+      rotateX(800deg) rotateY(800deg);
+  }
+  50% {
+    transform: translate3d(
+        calc((var(--x) + var(--px)) * 1px),
+        calc((var(--y) + var(--py) * 4) * 1px),
+        0
+      )
+      rotateX(1000deg) rotateY(1000deg);
+  }
+  60% {
+    transform: translate3d(
+        calc((var(--x) - var(--px)) * 1px),
+        calc((var(--y) + var(--py) * 5) * 1px),
+        0
+      )
+      rotateX(1200deg) rotateY(1200deg);
+  }
+  70% {
+    transform: translate3d(
+        calc((var(--x) + var(--px)) * 1px),
+        calc((var(--y) + var(--py) * 6) * 1px),
+        0
+      )
+      rotateX(1400deg) rotateY(1400deg);
+  }
+  80% {
+    transform: translate3d(
+        calc((var(--x) - var(--px)) * 1px),
+        calc((var(--y) + var(--py) * 7) * 1px),
+        0
+      )
+      rotateX(1600deg) rotateY(1600deg);
+  }
+  90% {
+    transform: translate3d(
+        calc((var(--x) + var(--px)) * 1px),
+        calc((var(--y) + var(--py) * 8) * 1px),
+        0
+      )
+      rotateX(1800deg) rotateY(1800deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(
+        calc((var(--x) +var(--px)) * 1px),
+        calc((var(--y) - var(--py) * 9) * 10px),
+        0
+      )
+      rotateX(2000deg) rotateY(2000deg);
+    opacity: 0;
+  }
+}

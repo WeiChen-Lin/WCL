@@ -1,7 +1,34 @@
 import styles from 'styles/contact/contact.module.css'
 import { ContactInput, ContactTextField } from './input'
 import SubmitBut from './button'
+import useSendEmail from 'hooks/contact/sendEmail'
+import { ChangeEvent, useState } from 'react'
+
+export interface Email {
+  name: string
+  email: string
+  title: string
+  message: string
+}
+
 export default function ContactPage() {
+  const [email, setEmail] = useState<Email>({
+    name: '',
+    email: '',
+    title: '',
+    message: ''
+  })
+
+  const handleEmailInput = (e: ChangeEvent, label: string) => {
+    const target: Partial<HTMLInputElement> | Partial<HTMLTextAreaElement> =
+      e.target
+
+    setEmail((prev) => ({
+      ...prev,
+      [label]: target.value
+    }))
+  }
+
   return (
     <div className={`h-screen w-full relative overflow-hidden`}>
       <div className={`h-full relative flex flex-col`}>
@@ -29,11 +56,35 @@ export default function ContactPage() {
         <div
           className={`w-full h-[40%] flex flex-wrap items-center justify-center`}
         >
-          <ContactInput label={'name'} css={'w-1/2'} />
-          <ContactInput label={'email'} css={'w-1/2'} />
-          <ContactInput label={'title'} css={'w-full'} />
-          <ContactTextField label={'message'} css={'w-full'} />
-          <SubmitBut />
+          <ContactInput
+            label={'name'}
+            css={'w-1/2'}
+            onChange={(e) => {
+              handleEmailInput(e, 'name')
+            }}
+          />
+          <ContactInput
+            label={'email'}
+            css={'w-1/2'}
+            onChange={(e) => {
+              handleEmailInput(e, 'email')
+            }}
+          />
+          <ContactInput
+            label={'title'}
+            css={'w-full'}
+            onChange={(e) => {
+              handleEmailInput(e, 'title')
+            }}
+          />
+          <ContactTextField
+            label={'message'}
+            css={'w-full'}
+            onChange={(e) => {
+              handleEmailInput(e, 'message')
+            }}
+          />
+          <SubmitBut email={email} />
         </div>
       </div>
     </div>
