@@ -1,8 +1,9 @@
 import styles from 'styles/contact/contact.module.css'
 import { ContactInput, ContactTextField } from './input'
 import SubmitBut from './button'
-import useSendEmail from 'hooks/contact/sendEmail'
 import { ChangeEvent, useState } from 'react'
+import Switch from './switch'
+import Bulb from './bulb'
 
 export interface Email {
   name: string
@@ -18,6 +19,7 @@ export default function ContactPage() {
     title: '',
     message: ''
   })
+  const [isOpen, setIsopen] = useState<boolean>(false)
 
   const handleEmailInput = (e: ChangeEvent, label: string) => {
     const target: Partial<HTMLInputElement> | Partial<HTMLTextAreaElement> =
@@ -29,21 +31,18 @@ export default function ContactPage() {
     }))
   }
 
+  const handleIsOpen = () => {
+    setIsopen((prev) => !prev)
+  }
+
   return (
-    <div className={`h-screen w-full relative overflow-hidden`}>
-      <div className={`h-full relative flex flex-col`}>
-        <div className={`h-1/2 left-[50%] relative`}>
-          <div className='w-1 h-1/5 bg-black'></div>
-          <div
-            className={`w-20 h-20 rounded-full bg-gray-700/60 absolute top-[100px] ${styles.bulb} ${styles.bulb_on}`}
-          ></div>
-          <div
-            className={`absolute w-28 h-28 bg-white rounded-full ${styles.blub_light_on}`}
-          ></div>
-        </div>
-      </div>
+    <div className='h-screen w-full relative overflow-hidden'>
+      <Bulb isOpen={isOpen} />
       <div
-        className={`w-3/4 h-full absolute top-[25%] left-[12.5%] my-12 flex flex-col bg-white/10  ${styles.glassBg}`}
+        className={`w-3/4 h-full absolute top-[25%] left-[12.5%] my-12 flex flex-col bg-white/10  ${
+          styles.glassBg
+        } transition-all duration-1000
+        ${isOpen ? 'opacity-100' : 'opacity-0'}`}
       >
         <div className='m-4'>
           <div className='w-12 h-12 bg-yellow-200/30 rounded absolute -top-2 -left-4 animate-bounce'></div>
@@ -58,34 +57,37 @@ export default function ContactPage() {
         >
           <ContactInput
             label={'name'}
-            css={'w-1/2'}
+            css={'w-1/2 mb-6'}
             onChange={(e) => {
               handleEmailInput(e, 'name')
             }}
           />
           <ContactInput
             label={'email'}
-            css={'w-1/2'}
+            css={'w-1/2 mb-6'}
             onChange={(e) => {
               handleEmailInput(e, 'email')
             }}
           />
           <ContactInput
             label={'title'}
-            css={'w-full'}
+            css={'w-full mb-6'}
             onChange={(e) => {
               handleEmailInput(e, 'title')
             }}
           />
           <ContactTextField
             label={'message'}
-            css={'w-full'}
+            css={'w-full mb-12'}
             onChange={(e) => {
               handleEmailInput(e, 'message')
             }}
           />
           <SubmitBut email={email} />
         </div>
+      </div>
+      <div className='absolute bottom-4 left-3 bg-black w-20 h-24'>
+        <Switch isOpen={isOpen} onClick={handleIsOpen} />
       </div>
     </div>
   )

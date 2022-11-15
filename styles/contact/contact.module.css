@@ -1,10 +1,8 @@
 .bulb {
   background-color: rgb(133, 132, 132);
   left: -38px;
-  animation: blub_on 2s infinite;
 }
-.bulb::before {
-  content: '';
+.backbone {
   position: absolute;
   left: 22.5px;
   top: -50px;
@@ -13,7 +11,9 @@
   background-color: rgb(133, 132, 132);
   border-top: 20px solid black;
   border-radius: 10px;
-  animation: blub_on 2s infinite;
+}
+.bulb_on {
+  animation: blub_on 2s forwards;
 }
 @keyframes blub_on {
   from {
@@ -23,13 +23,16 @@
     background-color: white;
   }
 }
-.blub_light_on {
+.bulb_light_on {
+  opacity: 0;
   top: 100px;
   left: -54px;
   filter: blur(30px);
-  animation: blub_on_blur 2s infinite;
 }
-@keyframes blub_on_blur {
+.bulb_blur {
+  animation: bulb_on_blur 2s forwards;
+}
+@keyframes bulb_on_blur {
   0% {
     opacity: 0;
   }
