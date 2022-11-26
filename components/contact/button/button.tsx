@@ -1,15 +1,18 @@
-import { useState } from 'react'
 import Confettis from './confettis'
 import SuccessText from './appearWord'
 import SubmitText from './disAppearWord'
 import Loading from './loading'
 import { Email } from 'components/contact'
-import useSendEmail from 'hooks/contact/sendEmail'
 
-export default function SubmitBut(props: { email: Email }) {
-  const { email } = props
-  const { currentText, isSending, isOverflow, handleClick } =
-    useSendEmail(email)
+interface SubmitButProps {
+  isSending: boolean
+  isOverflow: boolean
+  currentText: string
+  handleClick: () => Promise<void>
+}
+
+export default function SubmitBut(props: SubmitButProps) {
+  const { isSending, isOverflow, currentText, handleClick } = props
 
   const Status: { [key: string]: JSX.Element } = {
     SubmitText: <SubmitText width={isSending} />,

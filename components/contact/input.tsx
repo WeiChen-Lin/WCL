@@ -1,13 +1,14 @@
 import { ChangeEvent } from 'react'
 
 interface ContactInputInterface {
+  value: string
   label: string
   css: string
   onChange: (e: ChangeEvent) => void
 }
 
 const ContactInput = (props: ContactInputInterface) => {
-  const { label, css, onChange } = props
+  const { label, css, onChange, value } = props
 
   return (
     <>
@@ -19,6 +20,7 @@ const ContactInput = (props: ContactInputInterface) => {
           onChange={(e) => {
             onChange(e)
           }}
+          value={value}
         />
       </div>
     </>
@@ -26,7 +28,7 @@ const ContactInput = (props: ContactInputInterface) => {
 }
 
 const ContactTextField = (props: ContactInputInterface) => {
-  const { label, css, onChange } = props
+  const { label, css, onChange, value } = props
   return (
     <>
       <div className={`flex flex-col ${css}`}>
@@ -36,6 +38,7 @@ const ContactTextField = (props: ContactInputInterface) => {
           onChange={(e) => {
             onChange(e)
           }}
+          value={value}
         />
       </div>
     </>

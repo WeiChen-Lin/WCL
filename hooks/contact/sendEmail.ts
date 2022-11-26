@@ -1,6 +1,5 @@
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser'
-import { Email } from 'components/contact'
-import { useState } from 'react'
+import { useState, ChangeEvent } from 'react'
 
 const asyncSettimeout = (sec: number) => {
   return new Promise((resolve) => {
@@ -10,11 +9,23 @@ const asyncSettimeout = (sec: number) => {
   })
 }
 
-export default function useSendEmail(email: Email) {
+export interface Email {
+  name: string
+  email: string
+  title: string
+  message: string
+}
+
+export default function useSendEmail() {
   const [currentText, setCurrentText] = useState('SubmitText')
   const [isSending, setIsSending] = useState(true)
   const [isOverflow, setIsOverflow] = useState(true)
-
+  const [email, setEmail] = useState<Email>({
+    name: '',
+    email: '',
+    title: '',
+    message: ''
+  })
   const serviceID = 'send_email_service'
   const templateID = 'template_rhcy0f5'
   const publicKey = '7LuTZz6u23fkqciNY'
@@ -24,6 +35,16 @@ export default function useSendEmail(email: Email) {
     message: email.message,
     reply_email: email.email,
     title: email.title
+  }
+
+  const handleEmailInput = (e: ChangeEvent, label: string) => {
+    const target: Partial<HTMLInputElement> | Partial<HTMLTextAreaElement> =
+      e.target
+
+    setEmail((prev) => ({
+      ...prev,
+      [label]: target.value
+    }))
   }
 
   const handleClick = async () => {
@@ -44,6 +65,12 @@ export default function useSendEmail(email: Email) {
             setCurrentText('SuccessText')
             await asyncSettimeout(2000).then(() => {
               setCurrentText('SubmitText')
+              setEmail({
+                name: '',
+                email: '',
+                title: '',
+                message: ''
+              })
             })
           })
         }
@@ -53,5 +80,12 @@ export default function useSendEmail(email: Email) {
       })
   }
 
-  return { isSending, isOverflow, currentText, handleClick }
+  return {
+    isSending,
+    isOverflow,
+    currentText,
+    email,
+    handleClick,
+    handleEmailInput
+  }
 }

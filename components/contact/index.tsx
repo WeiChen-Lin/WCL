@@ -1,9 +1,10 @@
 import styles from 'styles/contact/contact.module.css'
 import { ContactInput, ContactTextField } from './input'
 import SubmitBut from './button'
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
 import Switch from './switch'
 import Bulb from './bulb'
+import useSendEmail from 'hooks/contact/sendEmail'
 
 export interface Email {
   name: string
@@ -13,23 +14,16 @@ export interface Email {
 }
 
 export default function ContactPage() {
-  const [email, setEmail] = useState<Email>({
-    name: '',
-    email: '',
-    title: '',
-    message: ''
-  })
+  const {
+    isSending,
+    isOverflow,
+    currentText,
+    email,
+    handleClick,
+    handleEmailInput
+  } = useSendEmail()
+
   const [isOpen, setIsopen] = useState<boolean>(false)
-
-  const handleEmailInput = (e: ChangeEvent, label: string) => {
-    const target: Partial<HTMLInputElement> | Partial<HTMLTextAreaElement> =
-      e.target
-
-    setEmail((prev) => ({
-      ...prev,
-      [label]: target.value
-    }))
-  }
 
   const handleIsOpen = () => {
     setIsopen((prev) => !prev)
@@ -61,6 +55,7 @@ export default function ContactPage() {
             onChange={(e) => {
               handleEmailInput(e, 'name')
             }}
+            value={email.name}
           />
           <ContactInput
             label={'email'}
@@ -68,6 +63,7 @@ export default function ContactPage() {
             onChange={(e) => {
               handleEmailInput(e, 'email')
             }}
+            value={email.email}
           />
           <ContactInput
             label={'title'}
@@ -75,6 +71,7 @@ export default function ContactPage() {
             onChange={(e) => {
               handleEmailInput(e, 'title')
             }}
+            value={email.title}
           />
           <ContactTextField
             label={'message'}
@@ -82,8 +79,14 @@ export default function ContactPage() {
             onChange={(e) => {
               handleEmailInput(e, 'message')
             }}
+            value={email.message}
           />
-          <SubmitBut email={email} />
+          <SubmitBut
+            isSending={isSending}
+            isOverflow={isOverflow}
+            currentText={currentText}
+            handleClick={handleClick}
+          />
         </div>
       </div>
       <div className='absolute bottom-4 left-3 bg-black w-20 h-24'>
