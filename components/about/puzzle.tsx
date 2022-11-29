@@ -8,6 +8,7 @@ const makePuzzlePieces = (): JSX.Element[] => {
       boxes.push(
         <div
           className={`${styles.imgBlock}`}
+          key={`puzzle_bg_${index}`}
           style={{
             animationDelay: `${random}s`,
             background: `url('/about/splitoceans/${num}${index}.png')`
