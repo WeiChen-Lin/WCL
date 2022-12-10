@@ -1,13 +1,14 @@
-import KeyboardIcon from 'public/layout'
+import { Keyboard, Cable } from 'public/layout'
 import { useState } from 'react'
 import styles from 'styles/keyboard/keyboard.module.css'
 import Key from './key'
+import { ContactInput } from 'components/contact/input'
 
 export default function KeyBoard() {
   const [isOpen, setIsOpen] = useState(true)
   return (
     <div
-      className={`absolute flex top-[17%] right-0 h-2/3 z-[10] p-4 ${styles.neo}
+      className={`absolute top-[17%] right-0 h-2/3 z-[10] ${styles.neo}
       ${isOpen ? 'w-3/4 opacity-100' : 'w-0'} transition-all duration-1000`}
     >
       <div
@@ -19,11 +20,21 @@ export default function KeyBoard() {
         }}
       >
         <div className='w-7 h-7 mt-9'>
-          <KeyboardIcon />
+          <Keyboard />
         </div>
       </div>
-      <div className={`w-full flex flex-col gap-2 ${isOpen ? '' : 'hidden'}`}>
-        <div className='flex w-full justify-around'>
+      <div className='w-[150px] h-[210px] mx-auto relative'>
+        <Cable />
+        <div className='absolute w-96 h-12 bg-black top-[100px] -left-28'>
+          <input></input>
+        </div>
+      </div>
+      <div
+        className={`w-[90%] mx-auto p-2 rounded-md flex flex-col bg-slate-700 ${
+          isOpen ? '' : 'hidden'
+        } ${styles.camo}`}
+      >
+        <div className='flex w-full justify-between mb-1 mx-auto'>
           <Key keyname='`' size={1} />
           <Key keyname='1' size={1} />
           <Key keyname='2' size={1} />
@@ -39,7 +50,7 @@ export default function KeyBoard() {
           <Key keyname='+' size={1} />
           <Key keyname='Back' size={1.5} />
         </div>
-        <div className='flex w-full justify-around'>
+        <div className='flex w-full justify-between mb-1 mx-auto'>
           <Key keyname='tab' size={1.5} />
           <Key keyname='q' size={1} />
           <Key keyname='w' size={1} />
@@ -55,7 +66,7 @@ export default function KeyBoard() {
           <Key keyname=']' size={1} />
           <Key keyname='\' size={1.5} />
         </div>
-        <div className='flex w-full justify-around'>
+        <div className='flex w-full justify-between mb-1 mx-auto'>
           <Key keyname='CAPS' size={2} />
           <Key keyname='a' size={1} />
           <Key keyname='s' size={1} />
@@ -68,9 +79,9 @@ export default function KeyBoard() {
           <Key keyname='l' size={1} />
           <Key keyname=';' size={1} />
           <Key keyname="'" size={1} />
-          <Key keyname='ENTER' size={2} />
+          <Key keyname='R' size={2} />
         </div>
-        <div className='flex w-full justify-around'>
+        <div className='flex w-full justify-between mb-1 mx-auto'>
           <Key keyname='shift' size={2} />
           <Key keyname='z' size={1} />
           <Key keyname='x' size={1} />

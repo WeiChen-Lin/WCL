@@ -7,9 +7,9 @@ interface KeyProp {
 
 const sizeSetting: { [key: number]: { outside: string; inside: string } } = {
   1: { outside: 'w-16 h-16', inside: 'w-12 h-12' },
-  1.5: { outside: 'w-24 h-16', inside: 'w-20 h-12' },
-  2: { outside: 'w-32 h-16', inside: 'w-28 h-12' },
-  3: { outside: 'w-48 h-16', inside: 'w-40 h-12' }
+  1.5: { outside: 'w-24 h-16', inside: 'w-[76px] h-12' },
+  2: { outside: 'w-32 h-16', inside: 'w-[112px] h-12' },
+  3: { outside: 'w-48 h-16', inside: 'w-[172px] h-12' }
 }
 
 export default function Key(props: KeyProp) {
@@ -27,7 +27,7 @@ export default function Key(props: KeyProp) {
         bg-gradient-to-br from-slate-700	to-slate-400 pt-1 pl-2 uppercase
         border-l-2 border-t-2 border-slate-700`}
       >
-        <span className='text-white'>{keyname}</span>
+        <span className='text-white tracking-wider'>{keyname}</span>
       </div>
     </div>
   )
