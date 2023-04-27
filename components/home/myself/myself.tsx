@@ -6,7 +6,7 @@ import socailMedias from 'constants/home/myself'
 export default function Myself() {
   return (
     <div className='w-full mx-auto flex flex-col items-center justify-start'>
-      <div className='rounded-full overflow-hidden w-32 h-32 bg-red-400'>
+      <div className='rounded-full overflow-hidden w-32 h-32'>
         <Image src={wcl} width={128} height={128} />
       </div>
       <ul className='mt-10 flex'>

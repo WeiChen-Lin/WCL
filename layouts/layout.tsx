@@ -8,7 +8,7 @@ type Props = {
 
 export default function Layout({ children }: Props): ReactElement {
   const router = useRouter()
-  const currentSite = router.route === '/' ? '/home' : router.route
+  const currentSite = router?.route === '/' ? '/home' : router?.route
 
   return (
     <div
