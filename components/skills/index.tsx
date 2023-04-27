@@ -16,7 +16,7 @@ export default function SkillPage() {
 
   const [cubeBg, setCubeBg] = useState<cubeBgSite>({
     positionX: 0,
-    positionY: 0
+    positionY: 0,
   })
 
   const ref = useRef<HTMLDivElement>(null)
@@ -29,7 +29,7 @@ export default function SkillPage() {
     setCubeBg({
       ...cubeBg,
       positionX: ref?.current?.clientWidth || 0,
-      positionY: ref?.current?.clientHeight || 0
+      positionY: ref?.current?.clientHeight || 0,
     })
   }, [ref?.current])
 
@@ -65,18 +65,18 @@ export default function SkillPage() {
               targetCube={targetCube}
               isRotate={isRotate}
             />
-            <h1
+            <div
               className={`${styles.aspect} ${
                 isRotate ? styles.cube_rotate_effect : ''
               }`}
             >
               {cubeFace}
-            </h1>
+            </div>
           </div>
           <div
             className='ml-10 flex flex-wrap h-4/5'
             style={{
-              width: `${listItemWidth}px`
+              width: `${listItemWidth}px`,
             }}
           >
             {Object.values(cubeImgs).map((e) => (
