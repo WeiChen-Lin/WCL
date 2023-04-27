@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
 
 export default function useScreen() {
-  const initWidth = typeof window !== 'undefined' ? window.innerWidth : 320
-
-  const [currentWidth, setCurrentWidth] = useState(initWidth)
+  const [currentWidth, setCurrentWidth] = useState(320)
 
   useEffect(() => {
     const resizeScreen = () => {
-      setCurrentWidth(window?.innerWidth ?? 0)
+      setCurrentWidth(typeof window !== 'undefined' ? window.innerWidth : 320)
     }
+
     window?.addEventListener('resize', resizeScreen)
+
+    setCurrentWidth(typeof window !== 'undefined' ? window.innerWidth : 320)
 
     return () => window?.removeEventListener('resize', resizeScreen)
   }, [])

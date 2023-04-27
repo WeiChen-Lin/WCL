@@ -16,17 +16,6 @@ interface PopupProps {
   reaction: () => void
 }
 
-export default function SideBar(props: Props) {
-  const { currentSite } = props
-  const width = useScreen()
-
-  return width < 768 ? (
-    <MobileSidebar currentSite={currentSite} />
-  ) : (
-    <DesktopSidebar currentSite={currentSite} />
-  )
-}
-
 const MobileSidebar = (props: Props) => {
   const [isClick, setIsClick] = useState(false)
   const handleClick = () => {
@@ -41,9 +30,9 @@ const MobileSidebar = (props: Props) => {
         <div className='my-2 mx-2' onClick={handleClick}>
           <Hambergur isClick={isClick} />
         </div>
-        <h1 className='flex-1 text-2xl text-gray-100 font-bold opacity-60 cursor-pointer text-center'>
+        <div className='flex-1 text-2xl text-gray-100 font-bold opacity-60 cursor-pointer text-center'>
           WeiChen Lin<span className='text-5xl text-red-200'>.</span>
-        </h1>
+        </div>
       </div>
       <PopUpMenu
         isClick={isClick}
@@ -59,16 +48,16 @@ const DesktopSidebar = (props: Props) => {
 
   return (
     <div className='w-1/4 border-r-2 border-zinc-400/20 flex flex-col justify-between px-6 lg:px-10 py-12 cur'>
-      <h1
+      <div
         className='text-xl lg:text-2xl xl:text-3xl text-gray-100 font-bold opacity-60 cursor-pointer'
         onClick={() => {
           router.push('/')
         }}
       >
         WeiChen Lin<span className='text-5xl text-red-200'>.</span>
-      </h1>
+      </div>
       <Menu currentSite={currentSite}></Menu>
-      <p className='text-sm'>© WeiChen Lin 2022</p>
+      <div className='text-sm'>© WeiChen Lin 2022</div>
     </div>
   )
 }
@@ -114,9 +103,22 @@ const PopUpMenu = (props: HambergurProps & PopupProps & Props) => {
           <div className='mt-4'>
             <Menu currentSite={currentSite} reaction={reaction} />
           </div>
-          <p className='text-sm text-gray-600 truncate'>© WeiChen Lin 2022</p>
+          <div className='text-sm text-gray-600 truncate'>
+            © WeiChen Lin 2022
+          </div>
         </>
       )}
     </div>
+  )
+}
+
+export default function SideBar(props: Props) {
+  const { currentSite } = props
+  const width = useScreen()
+
+  return width < 768 ? (
+    <MobileSidebar currentSite={currentSite} />
+  ) : (
+    <DesktopSidebar currentSite={currentSite} />
   )
 }

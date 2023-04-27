@@ -10,7 +10,7 @@ const Random_li = (dom_key: number) => {
     animationDelay: `${seconds + 1}s`,
     width: `${width}px`,
     height: `${width}px`,
-    left: `${position}%`
+    left: `${position}%`,
   }
 
   return (
