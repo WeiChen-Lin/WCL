@@ -16,7 +16,7 @@ export default function Layout({ children }: Props): ReactElement {
       <SideBar currentSite={currentSite} />
       {/* <div className='w-4/5'> */}
       {/* <KeyBoard /> */}
-      {children}
+      {/* {children} */}
       {/* </div> */}
     </div>
   )

@@ -5,10 +5,11 @@ type Props = {
   title: string
   active: boolean
   route: string
+  reaction?: () => void
 }
 
 export default function Menu(props: Props) {
-  const { title, active, route } = props
+  const { title, active, route, reaction } = props
   const router = useRouter()
   return (
     <ul className='relative flex flex-col justify-center items-center gap-8'>
@@ -17,6 +18,7 @@ export default function Menu(props: Props) {
           datatype={`\u00A0${title}\u00A0}`}
           className={`${active ? styles.textCurrent : styles.textAnimate}`}
           onClick={() => {
+            if (reaction) reaction()
             if (route === 'home') {
               router.push('/')
             } else {

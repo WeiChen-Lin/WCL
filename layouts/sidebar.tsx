@@ -8,6 +8,14 @@ interface Props {
   currentSite: string
 }
 
+interface HambergurProps {
+  isClick: boolean
+}
+
+interface PopupProps {
+  reaction: () => void
+}
+
 export default function SideBar(props: Props) {
   const { currentSite } = props
   const width = useScreen()
@@ -37,7 +45,11 @@ const MobileSidebar = (props: Props) => {
           WeiChen Lin<span className='text-5xl text-red-200'>.</span>
         </h1>
       </div>
-      <PopUpMenu isClick={isClick} currentSite={currentSite} />
+      <PopUpMenu
+        isClick={isClick}
+        currentSite={currentSite}
+        reaction={handleClick}
+      />
     </div>
   )
 }
@@ -59,10 +71,6 @@ const DesktopSidebar = (props: Props) => {
       <p className='text-sm'>© WeiChen Lin 2022</p>
     </div>
   )
-}
-
-interface HambergurProps {
-  isClick: boolean
 }
 
 const Hambergur = (props: HambergurProps) => {
@@ -92,21 +100,21 @@ const Hambergur = (props: HambergurProps) => {
   )
 }
 
-const PopUpMenu = (props: HambergurProps & { currentSite: string }) => {
-  const { isClick, currentSite } = props
+const PopUpMenu = (props: HambergurProps & PopupProps & Props) => {
+  const { isClick, currentSite, reaction } = props
   return (
     <div
       className={clsx(
-        'bg-zinc-300 absolute top-16 left-4 rounded-md flex flex-col transition-all duration-500 items-center justify-between',
+        'bg-zinc-300 absolute top-16 left-4 rounded-md flex flex-col transition-all duration-500 items-center justify-between z-10',
         `${isClick ? 'w-2/3 h-48' : 'w-0 h-0'}`
       )}
     >
       {isClick && (
         <>
           <div className='mt-4'>
-            <Menu currentSite={currentSite} />
+            <Menu currentSite={currentSite} reaction={reaction} />
           </div>
-          <p className='text-sm text-gray-600'>© WeiChen Lin 2022</p>
+          <p className='text-sm text-gray-600 truncate'>© WeiChen Lin 2022</p>
         </>
       )}
     </div>
