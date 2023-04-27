@@ -10,13 +10,14 @@ type Props = {
 export default function Layout({ children }: Props): ReactElement {
   const router = useRouter()
   const currentSite = router.route === '/' ? '/home' : router.route
+
   return (
-    <div className={`min-h-screen w-full bg-slate-500 flex`}>
+    <div className={`h-screen w-full bg-slate-500 p-0 m-0 md:flex`}>
       <SideBar currentSite={currentSite} />
-      <div className='w-4/5'>
-        {/* <KeyBoard /> */}
-        {children}
-      </div>
+      {/* <div className='w-4/5'> */}
+      {/* <KeyBoard /> */}
+      {children}
+      {/* </div> */}
     </div>
   )
 }
