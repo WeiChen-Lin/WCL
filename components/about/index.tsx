@@ -13,16 +13,14 @@ export default function Intro() {
   return (
     <>
       <div
-        className={`flex m-auto mt-[15%] relative transition-width duration-1000 
-        ${isOpen ? 'w-[975px]' : 'w-[650px]'}
-        `}
+        className={`flex flex-1 w-full relative transition-width duration-1000 flex-col`}
       >
-        <div
-          className={`transition-all duration-1000 ${
-            isOpen ? 'w-[600px]' : 'w-[400px]'
-          }`}
-        >
-          <WaveTitle />
+        <div className={`transition-all duration-1000`}>
+          <div className='w-full flex justify-center'>
+            <div className='relative'>
+              <WaveTitle />
+            </div>
+          </div>
           <div
             className={`bg-slate-300/25 h-64 rounded-lg duration-1000 transition-all flex ${
               isOpen ? 'h-48' : 'h-32'
@@ -38,7 +36,7 @@ export default function Intro() {
             <Introduct isOpen={isOpen} />
           </div>
         </div>
-        <PuzzleBg />
+        {/* <PuzzleBg /> */}
       </div>
     </>
   )

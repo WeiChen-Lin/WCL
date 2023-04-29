@@ -4,7 +4,7 @@ const introduction: string = `I am WeiChen Lin,
 A web developer from Taipei, Taiwan.
 Have experience at both frontend and backend,
 Interested in developing a good user experience product.
-Previous work at NTU, recently work at Tagtoo.`
+Previous work at Tagtoo, recently work at Trend Micro.`
 
 interface Animated {
   isOpen: boolean

@@ -11,7 +11,8 @@ const makePuzzlePieces = (): JSX.Element[] => {
           key={`puzzle_bg_${index}`}
           style={{
             animationDelay: `${random}s`,
-            background: `url('/about/splitoceans/${num}${index}.png')`
+            background: `url('/about/wcl/${num}${index}.jpg')`,
+            backgroundSize: '100px 50px'
           }}
         ></div>
       )
