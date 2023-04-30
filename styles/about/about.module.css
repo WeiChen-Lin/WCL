@@ -73,10 +73,8 @@
   top: -66px;
   border-radius: 12px;
 }
+
 .imgBanner {
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   overflow: hidden;
   flex-wrap: wrap;
@@ -95,6 +93,19 @@
   background-size: 100px 50px;
   background-attachment: fixed;
   animation: bgAnimate 1.5s ease-in-out forwards;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .imgBanner {
+    width: 280px;
+    height: 175px;
+  }
+  .imgBlock {
+    width: 70px;
+    height: 35px;
+    background-size: 70px 35px;
+    background-attachment: fixed;
+  }
 }
 
 @keyframes bgAnimate {

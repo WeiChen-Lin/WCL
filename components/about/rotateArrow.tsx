@@ -34,7 +34,22 @@ const RotateArrow = (props: ArrowProps) => {
   const { isOpen } = props
   return (
     <div
-      className={`w-4 h-4 mt-[15%] ml-[7%] relative cursor-pointer
+      className={`w-4 h-4 relative cursor-pointer
+      ${isOpen ? 'rotate-90 duration-1000' : ''}`}
+    >
+      {shapes.map((e, index) => {
+        return <FancyShape borderRadius={e} key={`border-${index}`} />
+      })}
+      <Arrow />
+    </div>
+  )
+}
+
+const RotateArrowＭobile = (props: ArrowProps) => {
+  const { isOpen } = props
+  return (
+    <div
+      className={`w-4 h-4 relative cursor-pointer
       ${isOpen ? 'rotate-90 duration-1000' : ''}`}
     >
       {shapes.map((e, index) => {
