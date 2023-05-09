@@ -13,7 +13,7 @@ const shapes: string[] = [
   '36% 64% 64% 36% / 14% 36% 64% 86%',
   '75% 25% 74% 26% / 29% 77% 23% 71%',
   '39% 61% 43% 57% / 52% 35% 65% 48%',
-  '47% 53% 55% 45% / 30% 68% 32% 70%'
+  '47% 53% 55% 45% / 30% 68% 32% 70%',
 ]
 
 const FancyShape = (props: FancyShapeProp) => {
@@ -24,7 +24,7 @@ const FancyShape = (props: FancyShapeProp) => {
       className={`absolute -top-3 -left-3 w-10 h-10 border border-amber-800 ${styles.arrow_border}`}
       style={{
         borderRadius: borderRadius,
-        animationDirection: direction
+        animationDirection: direction,
       }}
     ></span>
   )
@@ -45,7 +45,7 @@ const RotateArrow = (props: ArrowProps) => {
   )
 }
 
-const RotateArrowＭobile = (props: ArrowProps) => {
+const RotateArrowMobile = (props: ArrowProps) => {
   const { isOpen } = props
   return (
     <div
