@@ -3,7 +3,7 @@ import RotateArrow from './rotateArrow'
 import Introduct from './introduct'
 import { useState } from 'react'
 import { PuzzleBg, PuzzleBgMobile } from './puzzle'
-
+//test commit
 export default function Intro() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const handleMouseEvent = () => {
