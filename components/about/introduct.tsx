@@ -4,7 +4,7 @@ const introduction: string = `I am WeiChen Lin,
 A web developer from Taipei, Taiwan.
 Have experience at both frontend and backend,
 Interested in developing a good user experience product.
-Previous work at NTU, recently work at Tagtoo.`
+Previous work at Tagtoo, recently work at Trend Micro.`
 
 interface Animated {
   isOpen: boolean
@@ -20,7 +20,7 @@ const Intro_unit = (props: Animated_Word) => {
   const delayToString = (0.5 + delay).toString()
   return (
     <span
-      className={`${styles.textAnimate}`}
+      className={`${styles.textAnimate} font-bold`}
       style={{
         transform: `${isOpen ? 'translateY(0px)' : 'translateY(30px)'}`,
         backgroundSize: isOpen ? '100% 0%, 100% 100%' : '100% 100%, 100% 0%',

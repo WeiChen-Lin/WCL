@@ -11,7 +11,8 @@ const makePuzzlePieces = (): JSX.Element[] => {
           key={`puzzle_bg_${index}`}
           style={{
             animationDelay: `${random}s`,
-            background: `url('/about/splitoceans/${num}${index}.png')`
+            background: `url('/about/wcl/${num}${index}.jpg')`,
+            backgroundSize: '100px 50px'
           }}
         ></div>
       )
@@ -20,12 +21,41 @@ const makePuzzlePieces = (): JSX.Element[] => {
   return boxes
 }
 
-export default function PuzzleBg() {
+const makePuzzlePiecesMobile = (): JSX.Element[] => {
+  const boxes: JSX.Element[] = []
+  for (let index = 0; index < 5; index++) {
+    for (let num = 0; num < 4; num++) {
+      const random: string = Math.random().toFixed(2)
+      boxes.push(
+        <div
+          className={`${styles.imgBlock}`}
+          key={`puzzle_bg_${index}`}
+          style={{
+            animationDelay: `${random}s`,
+            background: `url('/about/wcl/${num}${index}.jpg')`,
+            backgroundSize: '70px 35px'
+          }}
+        ></div>
+      )
+    }
+  }
+  return boxes
+}
+
+export const PuzzleBg = () => {
   return (
     <section className={`${styles.imgAnimate}`}>
       <div className='relative w-[400px] h-[250px]'>
         <div className={`${styles.imgBanner}`}>{makePuzzlePieces()}</div>
       </div>
     </section>
+  )
+}
+
+export const PuzzleBgMobile = () => {
+  return (
+    <div className='relative'>
+      <div className={`${styles.imgBanner}`}>{makePuzzlePiecesMobile()}</div>
+    </div>
   )
 }

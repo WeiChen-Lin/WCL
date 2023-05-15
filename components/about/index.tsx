@@ -2,8 +2,8 @@ import WaveTitle from './wavetitle'
 import RotateArrow from './rotateArrow'
 import Introduct from './introduct'
 import { useState } from 'react'
-import PuzzleBg from './puzzle'
-
+import { PuzzleBg, PuzzleBgMobile } from './puzzle'
+//test commit
 export default function Intro() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const handleMouseEvent = () => {
@@ -13,32 +13,44 @@ export default function Intro() {
   return (
     <>
       <div
-        className={`flex m-auto mt-[15%] relative transition-width duration-1000 
-        ${isOpen ? 'w-[975px]' : 'w-[650px]'}
-        `}
+        className={`flex flex-col flex-1 w-full relative transition-width duration-1000 gap-y-4`}
       >
-        <div
-          className={`transition-all duration-1000 ${
-            isOpen ? 'w-[600px]' : 'w-[400px]'
-          }`}
-        >
+        <MobileIntro />
+      </div>
+    </>
+  )
+}
+
+const MobileIntro = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const handleMouseEvent = () => {
+    setIsOpen((prev) => !prev)
+  }
+  return (
+    <>
+      <div className='w-full flex justify-center mt-[10%]'>
+        <div className='relative'>
           <WaveTitle />
-          <div
-            className={`bg-slate-300/25 h-64 rounded-lg duration-1000 transition-all flex ${
-              isOpen ? 'h-48' : 'h-32'
-            }`}
-            onMouseEnter={() => {
-              handleMouseEvent()
-            }}
-            onMouseLeave={() => {
-              handleMouseEvent()
-            }}
-          >
-            <RotateArrow isOpen={isOpen} />
-            <Introduct isOpen={isOpen} />
-          </div>
         </div>
-        <PuzzleBg />
+      </div>
+      <div className='w-full flex'>
+        <div className='relative mx-auto'>
+          <PuzzleBgMobile />
+        </div>
+      </div>
+      <div
+        className={`mx-auto w-[90%] bg-slate-300/25 rounded-lg duration-1000 transition-all flex ${
+          isOpen ? 'h-64' : 'h-12'
+        }`}
+        onMouseEnter={() => {
+          handleMouseEvent()
+        }}
+        onMouseLeave={() => {
+          handleMouseEvent()
+        }}
+      >
+        <RotateArrow isOpen={isOpen} />
+        <Introduct isOpen={isOpen} />
       </div>
     </>
   )
